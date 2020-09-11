@@ -17,7 +17,11 @@ func schemaFeatures(supportLegacyTestSuite bool) *schema.Schema {
 				Schema: map[string]*schema.Schema{
 					"delete_os_disk_on_deletion": {
 						Type:     schema.TypeBool,
-						Required: true,
+						Optional: true,
+					},
+					"delete_data_disk_on_deletion": {
+						Type:     schema.TypeBool,
+						Optional: true,
 					},
 				},
 			},
@@ -100,7 +104,8 @@ func expandFeatures(input []interface{}) features.UserFeatures {
 	features := features.UserFeatures{
 		// NOTE: ensure all nested objects are fully populated
 		VirtualMachine: features.VirtualMachineFeatures{
-			DeleteOSDiskOnDeletion: true,
+			DeleteOSDiskOnDeletion:   true,
+			DeleteDataDiskOnDeletion: true,
 		},
 		VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 			RollInstancesWhenRequired: true,
@@ -139,6 +144,9 @@ func expandFeatures(input []interface{}) features.UserFeatures {
 			virtualMachinesRaw := items[0].(map[string]interface{})
 			if v, ok := virtualMachinesRaw["delete_os_disk_on_deletion"]; ok {
 				features.VirtualMachine.DeleteOSDiskOnDeletion = v.(bool)
+			}
+			if v, ok := virtualMachinesRaw["delete_data_disk_on_deletion"]; ok {
+				features.VirtualMachine.DeleteDataDiskOnDeletion = v.(bool)
 			}
 		}
 	}
