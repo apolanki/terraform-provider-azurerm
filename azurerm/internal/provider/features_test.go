@@ -24,6 +24,7 @@ func TestExpandFeatures(t *testing.T) {
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: true,
@@ -37,6 +38,7 @@ func TestExpandFeatures(t *testing.T) {
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
 							"delete_os_disk_on_deletion": true,
+							"delete_data_disk_on_deletion": true,
 						},
 					},
 					"virtual_machine_scale_set": []interface{}{
@@ -59,6 +61,7 @@ func TestExpandFeatures(t *testing.T) {
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: true,
@@ -72,6 +75,7 @@ func TestExpandFeatures(t *testing.T) {
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
 							"delete_os_disk_on_deletion": false,
+							"delete_data_disk_on_deletion": false,
 						},
 					},
 					"virtual_machine_scale_set": []interface{}{
@@ -94,6 +98,7 @@ func TestExpandFeatures(t *testing.T) {
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: false,
+					DeleteDataDiskOnDeletion: false,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: false,
@@ -198,6 +203,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: true,
 				},
 			},
 		},
@@ -215,6 +221,25 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: true,
+				},
+			},
+		},
+		{
+			Name: "Delete Data Disk Enabled",
+			Input: []interface{}{
+				map[string]interface{}{
+					"virtual_machine": []interface{}{
+						map[string]interface{}{
+							"delete_data_disk_on_deletion": true,
+						},
+					},
+				},
+			},
+			Expected: features.UserFeatures{
+				VirtualMachine: features.VirtualMachineFeatures{
+					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: true,
 				},
 			},
 		},
@@ -232,6 +257,25 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
 					DeleteOSDiskOnDeletion: false,
+					DeleteDataDiskOnDeletion: true,
+				},
+			},
+		},
+		{
+			Name: "Delete Data Disk Disabled",
+			Input: []interface{}{
+				map[string]interface{}{
+					"virtual_machine": []interface{}{
+						map[string]interface{}{
+							"delete_data_disk_on_deletion": false,
+						},
+					},
+				},
+			},
+			Expected: features.UserFeatures{
+				VirtualMachine: features.VirtualMachineFeatures{
+					DeleteOSDiskOnDeletion: true,
+					DeleteDataDiskOnDeletion: false,
 				},
 			},
 		},
