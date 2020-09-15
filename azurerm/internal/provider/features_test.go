@@ -23,7 +23,7 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: true,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
@@ -37,7 +37,7 @@ func TestExpandFeatures(t *testing.T) {
 				map[string]interface{}{
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
-							"delete_os_disk_on_deletion": true,
+							"delete_os_disk_on_deletion":   true,
 							"delete_data_disk_on_deletion": true,
 						},
 					},
@@ -60,7 +60,7 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: true,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
@@ -74,7 +74,7 @@ func TestExpandFeatures(t *testing.T) {
 				map[string]interface{}{
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
-							"delete_os_disk_on_deletion": false,
+							"delete_os_disk_on_deletion":   false,
 							"delete_data_disk_on_deletion": false,
 						},
 					},
@@ -97,7 +97,7 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: false,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: false,
+					DeleteOSDiskOnDeletion:   false,
 					DeleteDataDiskOnDeletion: false,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
@@ -202,7 +202,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: true,
 				},
 			},
@@ -220,7 +220,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: true,
 				},
 			},
@@ -238,7 +238,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: true,
 				},
 			},
@@ -256,7 +256,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: false,
+					DeleteOSDiskOnDeletion:   false,
 					DeleteDataDiskOnDeletion: true,
 				},
 			},
@@ -274,7 +274,7 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:   true,
 					DeleteDataDiskOnDeletion: false,
 				},
 			},
