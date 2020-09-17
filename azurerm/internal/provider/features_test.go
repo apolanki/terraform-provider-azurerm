@@ -23,8 +23,8 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: true,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: true,
@@ -38,7 +38,7 @@ func TestExpandFeatures(t *testing.T) {
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
 							"delete_os_disk_on_deletion":   true,
-							"delete_data_disk_on_deletion": true,
+							"delete_data_disks_on_deletion": true,
 						},
 					},
 					"virtual_machine_scale_set": []interface{}{
@@ -60,8 +60,8 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: true,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: true,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: true,
@@ -75,7 +75,7 @@ func TestExpandFeatures(t *testing.T) {
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
 							"delete_os_disk_on_deletion":   false,
-							"delete_data_disk_on_deletion": false,
+							"delete_data_disks_on_deletion": false,
 						},
 					},
 					"virtual_machine_scale_set": []interface{}{
@@ -97,8 +97,8 @@ func TestExpandFeatures(t *testing.T) {
 					RecoverSoftDeletedKeyVaults: false,
 				},
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   false,
-					DeleteDataDiskOnDeletion: false,
+					DeleteOSDiskOnDeletion:    false,
+					DeleteDataDisksOnDeletion: false,
 				},
 				VirtualMachineScaleSet: features.VirtualMachineScaleSetFeatures{
 					RollInstancesWhenRequired: false,
@@ -202,8 +202,8 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: true,
 				},
 			},
 		},
@@ -220,26 +220,26 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: true,
 				},
 			},
 		},
 		{
-			Name: "Delete Data Disk Enabled",
+			Name: "Delete Data Disks Enabled",
 			Input: []interface{}{
 				map[string]interface{}{
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
-							"delete_data_disk_on_deletion": true,
+							"delete_data_disks_on_deletion": true,
 						},
 					},
 				},
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: true,
 				},
 			},
 		},
@@ -256,8 +256,8 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   false,
-					DeleteDataDiskOnDeletion: true,
+					DeleteOSDiskOnDeletion:    false,
+					DeleteDataDisksOnDeletion: true,
 				},
 			},
 		},
@@ -267,15 +267,15 @@ func TestExpandFeaturesVirtualMachine(t *testing.T) {
 				map[string]interface{}{
 					"virtual_machine": []interface{}{
 						map[string]interface{}{
-							"delete_data_disk_on_deletion": false,
+							"delete_data_disks_on_deletion": false,
 						},
 					},
 				},
 			},
 			Expected: features.UserFeatures{
 				VirtualMachine: features.VirtualMachineFeatures{
-					DeleteOSDiskOnDeletion:   true,
-					DeleteDataDiskOnDeletion: false,
+					DeleteOSDiskOnDeletion:    true,
+					DeleteDataDisksOnDeletion: false,
 				},
 			},
 		},
